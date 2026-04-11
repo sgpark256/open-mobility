@@ -2139,6 +2139,11 @@ img {
     gap: 40px;
   }
 
+  /* STEP 카드 그리드: min 240px 고정이 좁은 화면에서 가로 넘침 유발 → 1열 */
+  .cycle-section .cycle-grid {
+    grid-template-columns: 1fr;
+  }
+
   .team-grid {
     grid-template-columns: 1fr;
   }
@@ -2320,6 +2325,15 @@ img {
   padding: 90px 0;
   background: linear-gradient(180deg, #0f1020 0%, #0a0a18 100%);
   color: #ccc;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+  box-sizing: border-box;
+}
+
+.cycle-section .container {
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .cycle-section .label {
@@ -2351,7 +2365,7 @@ img {
 
 .cycle-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
   gap: 20px;
   margin-bottom: 48px;
 }
@@ -2397,13 +2411,14 @@ img {
 .cycle-aside .cycle-logo-wrap {
   text-align: center;
   width: 100%;
-  max-width: min(320px, 100%);
+  max-width: min(300px, calc(100vw - 40px));
   margin: 0 auto;
   box-sizing: border-box;
-  padding: 0 8px;
+  padding: 0 max(4px, env(safe-area-inset-right, 0px)) 0 max(4px, env(safe-area-inset-left, 0px));
 }
 
-.cycle-aside .cycle-logo-wrap img {
+.cycle-aside .cycle-logo-wrap img,
+.cycle-aside .cycle-logo-wrap img.cycle-section-logo-img {
   display: block;
   width: 100%;
   max-width: 100%;
