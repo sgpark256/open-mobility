@@ -2,6 +2,18 @@
    Open Mobility - Main JavaScript
    ============================================= */
 
+(function enforceHttpsOnProduction() {
+  try {
+    if (location.protocol !== 'http:') return;
+    var h = location.hostname;
+    if (h === 'localhost' || h === '127.0.0.1') return;
+    if (!/\.?open-mobility\.co\.kr$/i.test(h)) return;
+    location.replace(
+      'https://' + location.host + location.pathname + location.search + location.hash
+    );
+  } catch (e) { /* noop */ }
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
 
   /* -------------------------------------------
