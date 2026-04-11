@@ -8,4 +8,5 @@ Desktop.ini
 
 # Large local documents (keep on disk; not versioned)
 *.pdf
+!downloads/open_mobility_partnership_proposal.pdf
 *.pptx
