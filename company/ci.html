@@ -1,0 +1,227 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CI - Company Profile | Open Mobility</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .ci-color-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 40px;
+    }
+    .ci-color-box {
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+    }
+    .ci-color-box .swatch {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      margin: 0 auto 14px;
+      border: 1px solid rgba(0,0,0,0.1);
+    }
+    .ci-color-box .color-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+    .ci-color-box .color-hex {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      color: var(--gray);
+    }
+    @media (max-width: 768px) {
+      .ci-color-grid { grid-template-columns: repeat(2, 1fr); }
+      .ci-grid { grid-template-columns: 1fr !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <header id="header" class="page-header">
+    <div class="header-inner">
+      <div class="header-logo"><a href="../index.html" class="logo-link"><img src="../images/logo1.png" alt="Open Mobility" class="header-logo-img" width="180" height="38"></a></div>
+      <nav class="header-nav">
+        <div class="nav-item"><a href="../company/about.html">Company Profile</a>
+          <div class="dropdown">
+            <a href="../company/about.html">About us</a>
+            <a href="../company/greetings.html">Greetings</a>
+            <a href="../company/ci.html">CI</a>
+          </div>
+        </div>
+        <div class="nav-item"><a href="../business/solution.html">Solution</a><div class="dropdown"><a href="../business/solution.html">Solution</a><a href="../business/partners.html">Partners</a></div></div>
+        <div class="nav-item"><a href="../news/press-release.html">News</a><div class="dropdown"><a href="../news/press-release.html">Press Release</a><a href="../news/notice.html">Notice</a><a href="../news/videos.html">Videos</a></div></div>
+        <div class="nav-item"><a href="../patent/patent.html">Patent</a><div class="dropdown"><a href="../patent/patent.html">Patent</a></div></div>
+        <div class="nav-item"><a href="../service/contact.html">Contact us</a><div class="dropdown"><a href="../service/contact.html">Contact us</a></div></div>
+      </nav>
+      <div class="header-lang"><a href="#" class="active">KOR</a><span>|</span><a href="#">CN</a></div>
+      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-nav-item"><a href="../company/about.html">Company Profile</a>
+      <div class="mobile-dropdown"><a href="../company/about.html">About us</a><a href="../company/greetings.html">Greetings</a><a href="../company/ci.html">CI</a></div>
+    </div>
+    <div class="mobile-nav-item"><a href="../business/solution.html">Solution</a></div>
+    <div class="mobile-nav-item"><a href="../news/press-release.html">News</a></div>
+    <div class="mobile-nav-item"><a href="../patent/patent.html">Patent</a></div>
+    <div class="mobile-nav-item"><a href="../service/contact.html">Contact us</a></div>
+  </div>
+
+  <section class="page-banner">
+    <div class="breadcrumb">
+      <a href="../index.html">Home</a><span>›</span>
+      <a href="#">Company Profile</a><span>›</span>
+      <span style="color:#fff;">CI</span>
+    </div>
+    <h1>Company Profile</h1>
+    <p>Open Mobility는 지역 소규모 콜센터를 통합하고, 대형 앱사에 모빌리티 콘텐츠를 제공하여<br>고객 활성화와 지역 운송 생태계 성장을 동시에 지향합니다.</p>
+  </section>
+
+  <nav class="sub-nav">
+    <ul>
+      <li><a href="about.html">About us</a></li>
+      <li><a href="greetings.html">Greetings</a></li>
+      <li><a href="ci.html" class="active">CI</a></li>
+    </ul>
+  </nav>
+
+  <section class="ci-section section">
+    <div class="container">
+      <div class="section-title fade-up">
+        <div class="label">Corporate Identity</div>
+        <h2>CI 소개</h2>
+      </div>
+
+      <div class="ci-intro fade-up">
+        <p>Open Mobility의 CI는 개방형 모빌리티 생태계를 지향하는 기업 철학을 담고 있습니다. 열린 연결(Open)과 이동성(Mobility)의 결합으로, 지역 운송 인프라와 대형 플랫폼 고객층을 잇는 중심 역할을 상징합니다.</p>
+      </div>
+
+      <!-- 시그니처 -->
+      <div class="section-title fade-up" style="margin-bottom:30px; margin-top:60px;">
+        <div class="label">Signature</div>
+        <h2>시그니처</h2>
+      </div>
+
+      <div class="ci-grid" style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-bottom:70px;">
+        <!-- 기본형 -->
+        <div class="ci-card fade-up" style="background:linear-gradient(135deg,#f0f4f8,#e8edf5);">
+          <div class="ci-logo-display" style="display:flex;align-items:center;justify-content:center;min-height:72px;">
+            <img src="../images/logo1.png" alt="Open Mobility 기본형 로고" style="max-height:48px;width:auto;">
+          </div>
+          <h3>기본형 (컬러)</h3>
+        </div>
+
+        <!-- 블랙 -->
+        <div class="ci-card black fade-up">
+          <div class="ci-logo-display" style="font-family:'Montserrat',sans-serif; font-weight:900; font-size:20px; letter-spacing:1px; color:#fff;">
+            Open Mobility
+          </div>
+          <h3>블랙 배경</h3>
+        </div>
+
+        <!-- 화이트 -->
+        <div class="ci-card white fade-up">
+          <div class="ci-logo-display" style="font-family:'Montserrat',sans-serif; font-weight:900; font-size:20px; letter-spacing:1px; color:#0a0a1e;">
+            Open Mobility
+          </div>
+          <h3>화이트 배경</h3>
+        </div>
+      </div>
+
+      <!-- 컬러 시스템 -->
+      <div class="section-title fade-up" style="margin-bottom:30px;">
+        <div class="label">Color System</div>
+        <h2>컬러 시스템</h2>
+      </div>
+
+      <div class="ci-color-grid fade-up">
+        <div class="ci-color-box">
+          <div class="swatch" style="background:#0a0a1e;"></div>
+          <div class="color-name">Primary Dark</div>
+          <div class="color-hex">#0A0A1E</div>
+        </div>
+        <div class="ci-color-box">
+          <div class="swatch" style="background:#0066cc;"></div>
+          <div class="color-name">Primary Blue</div>
+          <div class="color-hex">#0066CC</div>
+        </div>
+        <div class="ci-color-box">
+          <div class="swatch" style="background:#66aaff;"></div>
+          <div class="color-name">Light Blue</div>
+          <div class="color-hex">#66AAFF</div>
+        </div>
+        <div class="ci-color-box">
+          <div class="swatch" style="background:#ffffff; border:1px solid #ddd;"></div>
+          <div class="color-name">White</div>
+          <div class="color-hex">#FFFFFF</div>
+        </div>
+      </div>
+
+      <!-- 사용 규정 -->
+      <div class="section-title fade-up" style="margin-top:70px; margin-bottom:30px;">
+        <div class="label">Usage Guidelines</div>
+        <h2>사용 규정</h2>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;" class="fade-up">
+        <div style="padding:30px; background:var(--light-gray); border-radius:12px;">
+          <h3 style="font-size:16px; font-weight:700; color:var(--primary); margin-bottom:16px; display:flex; align-items:center; gap:8px;">
+            <span style="color:#22cc44;">✓</span> 올바른 사용
+          </h3>
+          <ul style="list-style:disc; padding-left:20px; font-size:14px; color:var(--text); line-height:2;">
+            <li>지정된 컬러 시스템 사용</li>
+            <li>충분한 여백 확보</li>
+            <li>지정된 서체 사용</li>
+            <li>배경색과의 대비 유지</li>
+          </ul>
+        </div>
+        <div style="padding:30px; background:#fff5f5; border-radius:12px; border:1px solid #ffdddd;">
+          <h3 style="font-size:16px; font-weight:700; color:var(--primary); margin-bottom:16px; display:flex; align-items:center; gap:8px;">
+            <span style="color:#cc2222;">✗</span> 잘못된 사용
+          </h3>
+          <ul style="list-style:disc; padding-left:20px; font-size:14px; color:var(--text); line-height:2;">
+            <li>로고 비율 변형 금지</li>
+            <li>임의 색상 변경 금지</li>
+            <li>로고 회전 금지</li>
+            <li>그림자 효과 추가 금지</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="footer">
+    <div class="footer-main">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand"><a href="../index.html" class="footer-logo-link"><img src="../images/logo1.png" alt="Open Mobility" class="footer-logo-img" width="160" height="36"></a><p>Open Mobility는 지역 소규모 콜센터를 통합하고, 대형 앱사에 모빌리티 콘텐츠를 제공하여 고객 활성화와 지역 운송 생태계 성장을 동시에 만드는 오픈 플랫폼입니다.</p></div>
+          <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About us</a></li><li><a href="greetings.html">Greetings</a></li><li><a href="ci.html">CI</a></li></ul></div>
+          <div class="footer-col"><h4>Solution</h4><ul><li><a href="../business/solution.html">Solution</a></li><li><a href="../business/partners.html">Partners</a></li></ul></div>
+          <div class="footer-col"><h4>Links</h4><ul><li><a href="../news/press-release.html">Press Release</a></li><li><a href="../patent/patent.html">Patent</a></li><li><a href="../service/contact.html">Contact us</a></li></ul></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="footer-bottom-inner">
+          <div class="footer-info"><strong>주식회사 오픈모빌리티</strong><br>서울특별시 서초구 동광로 99, 4층 (방배동 유니코빌딩) | 대표전화: +82-2-594-0098 | e-mail: service@axismobility.io</div>
+          <div><div class="footer-links"><a href="#">이용약관</a><a href="#">개인정보처리방침</a></div><div class="footer-copy">Copyright © 2026 Open Mobility. All rights reserved.</div></div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
+
+
+
+
