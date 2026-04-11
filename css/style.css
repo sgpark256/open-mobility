@@ -1519,6 +1519,59 @@ img {
   align-items: center;
 }
 
+/* Solution 페이지 — SUPERAPP 개방형 생태계 3카드 (모바일에서 1열 스택) */
+.superapp-ecosystem-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.superapp-eco-card {
+  text-align: center;
+  padding: clamp(24px, 4vw, 40px) clamp(18px, 3vw, 24px);
+  border-radius: 14px;
+  background: linear-gradient(135deg, #f0f4f8, #e8edf5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.superapp-eco-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(0, 102, 204, 0.12);
+}
+
+.superapp-eco-card .superapp-eco-icon {
+  font-size: clamp(40px, 10vw, 48px);
+  margin-bottom: 16px;
+  line-height: 1;
+}
+
+.superapp-eco-card h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 10px;
+  word-break: keep-all;
+}
+
+.superapp-eco-card p {
+  font-size: 14px;
+  color: var(--gray);
+  line-height: 1.75;
+  word-break: keep-all;
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .superapp-ecosystem-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+}
+
 /* =============================================
    NEWS / BBS
    ============================================= */
@@ -2209,6 +2262,11 @@ img {
 
   .solution-feature-grid {
     grid-template-columns: 1fr;
+  }
+
+  .superapp-ecosystem-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
 
   /* ----- 모바일: 메인 히어로·블록 잘림 방지 ----- */
