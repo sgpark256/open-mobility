@@ -2795,7 +2795,7 @@ img {
   }
 }
 
-/* 대구 POC: 세로(모바일 화면 녹화) 영상 — 단말 세로 폭에 맞춤, 데스크톱은 좁은 폰 프레임만 */
+/* 대구 POC: 모바일 화면 녹화본 — 원본 해상도 비율 유지, 확대(upscale) 없음. 뷰포트만 넘치면 축소 */
 .poc-video-block {
   margin-top: 56px;
   padding-top: 40px;
@@ -2812,12 +2812,12 @@ img {
   box-sizing: border-box;
 }
 
-/* 스마트폰 세로 화면 폭(약 360~390 CSS px)으로 고정 — width:100%만 쓰면 부모(전체 컨테이너) 너비를 먹는 문제 방지 */
+/* 프레임은 영상 intrinsic 크기에 맞춤 (width:100%로 박스를 키우지 않음) */
 .poc-gallery-section .poc-video-frame {
   position: relative;
   flex: 0 0 auto;
-  width: min(390px, calc(100vw - 48px));
-  max-width: 100%;
+  width: fit-content;
+  max-width: calc(100vw - 48px);
   margin-left: auto;
   margin-right: auto;
   border-radius: 12px;
@@ -2829,9 +2829,11 @@ img {
 
 .poc-gallery-section .poc-video-frame .poc-video {
   display: block;
-  width: 100%;
-  max-width: 100%;
+  /* intrinsic 크기 그대로 — 부모를 채우느라 키우지 않음 (확대 방지) */
+  width: auto;
   height: auto;
+  max-width: min(390px, calc(100vw - 48px));
+  max-height: min(85vh, 100%);
   object-fit: contain;
   vertical-align: top;
 }
