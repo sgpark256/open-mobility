@@ -560,19 +560,36 @@ img {
 }
 
 /* =============================================
+   HOME TOP (메인: 헤더 아래 배너 + 히어로, 레이아웃 겹침 없음)
+   ============================================= */
+
+.home-top-block {
+  padding-top: var(--header-height);
+  box-sizing: border-box;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: auto 1fr;
+}
+
+.home-top-block .hero-slider {
+  height: 100%;
+  min-height: 0;
+}
+
+/* =============================================
    TOP ANNOUNCEMENT BAR (사명 변경 등 주요 안내)
    ============================================= */
 
 .announcement-bar {
-  position: fixed;
-  top: var(--header-height);
-  left: 0;
-  right: 0;
-  z-index: 998;
+  position: relative;
+  z-index: 1;
+  width: 100%;
   padding: 12px 24px;
   background: linear-gradient(135deg, #003d82 0%, #0066cc 45%, #0055aa 100%);
   border-bottom: 2px solid rgba(102, 170, 255, 0.85);
-  box-shadow: 0 6px 24px rgba(0, 30, 80, 0.45);
+  box-shadow: 0 4px 16px rgba(0, 30, 80, 0.25);
 }
 
 .announcement-bar-inner {
