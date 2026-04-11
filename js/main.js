@@ -14,6 +14,18 @@ document.addEventListener('DOMContentLoaded', () => {
   if (header) {
     const isSubPage = header.classList.contains('page-header');
 
+    if (document.body.classList.contains('page-home')) {
+      function syncSiteHeaderOffset() {
+        document.documentElement.style.setProperty('--site-header-offset', `${header.offsetHeight}px`);
+      }
+      syncSiteHeaderOffset();
+      window.addEventListener('resize', syncSiteHeaderOffset);
+      if (typeof ResizeObserver !== 'undefined') {
+        const ro = new ResizeObserver(syncSiteHeaderOffset);
+        ro.observe(header);
+      }
+    }
+
     window.addEventListener('scroll', () => {
       if (window.scrollY > 50) {
         header.classList.add('scrolled');
