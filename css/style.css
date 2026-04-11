@@ -2795,7 +2795,7 @@ img {
   }
 }
 
-/* 대구 POC: 세로(모바일 촬영) 영상 — 넓은 화면에서는 폭을 제한해 ‘폰 화면’ 비율로 표시 */
+/* 대구 POC: 세로(모바일 화면 녹화) 영상 — 단말 세로 폭에 맞춤, 데스크톱은 좁은 폰 프레임만 */
 .poc-video-block {
   margin-top: 56px;
   padding-top: 40px;
@@ -2805,31 +2805,35 @@ img {
   max-width: 100%;
 }
 
-.poc-video-frame {
-  position: relative;
+.poc-gallery-section .poc-video-device {
+  display: flex;
+  justify-content: center;
   width: 100%;
-  /* 세로 영상: 데스크톱·태블릿 가로에서는 핸드폰 폭에 가깝게 */
-  max-width: min(390px, 100%);
+  box-sizing: border-box;
+}
+
+/* 스마트폰 세로 화면 폭(약 360~390 CSS px)으로 고정 — width:100%만 쓰면 부모(전체 컨테이너) 너비를 먹는 문제 방지 */
+.poc-gallery-section .poc-video-frame {
+  position: relative;
+  flex: 0 0 auto;
+  width: min(390px, calc(100vw - 48px));
+  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
   border-radius: 12px;
   overflow: hidden;
   background: #0a0a18;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
 }
 
-.poc-video-frame .poc-video {
+.poc-gallery-section .poc-video-frame .poc-video {
   display: block;
   width: 100%;
+  max-width: 100%;
   height: auto;
-  vertical-align: middle;
   object-fit: contain;
-}
-
-@media (max-width: 480px) {
-  .poc-video-frame {
-    max-width: 100%;
-  }
+  vertical-align: top;
 }
 
 /* 모바일: 본문 아래쪽에 정의된 .cycle-section 패딩(90px) 덮어쓰기 */
