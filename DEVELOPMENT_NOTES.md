@@ -24,6 +24,10 @@
 ### 참고 보도·사내 맥락
 - 스윙–지역콜택시 연계, 표준 API, 대구 시범·상용화: `news/press-detail.html` 등 기존 콘텐츠와 용어 통일.
 
+### 대구 POC 이미지 자산
+- 원본은 `images/대구택시POC이미지` 에 두었을 수 있으나, **경로·파일명 호환**을 위해 `images/daegu-taxi-poc/` 로 정리함.
+- 파일: `daegu-poc-taxi.jpg`, `daegu-poc-photo-2.jpg`, `daegu-poc-photo-3.jpg` — `business/daegu-poc.html` 갤러리 섹션에서 참조.
+
 ---
 
 ## 이전 기록
