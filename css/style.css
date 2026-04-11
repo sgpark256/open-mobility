@@ -2311,6 +2311,11 @@ img {
   gap: 48px;
 }
 
+/* 모바일에서 그리드 자식이 콘텐츠 최소 너비 때문에 뷰포트 밖으로 밀리지 않도록 */
+.cycle-section .cycle-layout.esg-grid > * {
+  min-width: 0;
+}
+
 .cycle-section {
   padding: 90px 0;
   background: linear-gradient(180deg, #0f1020 0%, #0a0a18 100%);
@@ -2391,25 +2396,46 @@ img {
 
 .cycle-aside .cycle-logo-wrap {
   text-align: center;
+  width: 100%;
+  max-width: min(320px, 100%);
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 0 8px;
 }
 
 .cycle-aside .cycle-logo-wrap img {
-  max-width: min(100%, 320px);
+  display: block;
+  width: 100%;
+  max-width: 100%;
   height: auto;
   margin: 0 auto;
+  object-fit: contain;
 }
 
 .cycle-aside .cycle-tagline {
   margin-top: 20px;
-  font-size: 13px;
+  font-size: clamp(10px, 2.8vw, 13px);
   color: rgba(255, 255, 255, 0.45);
-  letter-spacing: 2px;
+  letter-spacing: 0.1em;
+  line-height: 1.45;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  padding: 0 10px;
+  box-sizing: border-box;
 }
 
 @media (max-width: 900px) {
   .cycle-aside {
     min-height: auto;
     margin-top: 24px;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .cycle-aside .cycle-tagline {
+    letter-spacing: 0.06em;
   }
 }
 
