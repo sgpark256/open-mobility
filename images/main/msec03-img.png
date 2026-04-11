@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="Content-Script-Type" content="text/javascript" />
+	<meta http-equiv="Content-Style-Type" content="text/css" />
+	<meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible" />
+	<meta name ="viewport" content= "width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+	
+	<!-- seo -->
+	<meta name="Keywords" content="">
+	<meta name="Description" content="">   
+
+	<meta property="og:image" content="/images/common/og-img-axis.png" />
+	<meta property="og:title" content="axismobility" />
+	<meta property="og:description" content="" />
+	<meta property="og:type" content="website" />
+	<meta property="og:site_name" content="axismobility" />
+	<link rel="canonical" href="">
+
+	<link rel="shortcut icon" href="/images/common/favicon.png" type="image/x-icon" />
+	<link rel="icon" href="/images/common/favicon.png" type="image/x-icon" />  
+	<!--end-->
+
+
+
+	<title>엑시스모빌리티</title>
+
+        <link rel="stylesheet" href="/common/css/reset.css"> 
+		<link rel="stylesheet" href="/common/css/board.css"> 
+		<link rel="stylesheet" href="/common/css/swiper.min.css">
+        <link rel="stylesheet" href="/common/css/jquery.fullpage.css">
+        <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    	<link rel="stylesheet" href="/common/css/jquery.simplyscroll.css">
+		<link rel="stylesheet" href="/common/css/common.css">
+		<link rel="stylesheet" href="/common/css/main.css?1775886798">
+		<link rel="stylesheet" href="/common/css/sub.css?1775886798">
+
+		<script src="/common/js/jquery-1.11.2.min.js"></script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+		<script src="/common/js/jquery.easing.1.3.js"></script> 
+		<script src="/common/js/swiper.min.js"></script> 
+        <script src="/common/js/jquery.fullpage.js"></script>
+    	<script src="/common/js/jquery.simplyscroll.min.js"></script>
+		<script src="/common/js/common.js"></script>
+	</head>
+	<body> 
+        <div id="main-w" class="wrap" ><!-- sec-wrap -->
+<section class="sec-wrap">
+	
+	<!-- sec-centent -->
+	<section class="sec-centent">
+
+    	      
+    <style>
+    /* 팝업레이어 */
+    #hd_pop {z-index:1000;position:relative;margin:0 auto; width:100%; max-width:970px;height:0}
+    #hd_pop h2 {position:absolute;font-size:0;line-height:0;overflow:hidden}
+    .hd_pops {position:absolute;border:1px solid #e9e9e9;background:#fff}
+    .hd_pops_con {}
+    .hd_pops_con p{word-break: break-all;}
+    .hd_pops_footer {padding:10px 0;background:#000;color:#fff;text-align:right; overflow:hidden;}
+    .hd_pops_footer button {margin-right:5px;padding:2px 10px;border:0;background:#000; font-size:12px;color:#fff; float:left;}
+    .hd_pops_footer button:last-child{float:right;}
+	img{max-width:100%;}
+	@media screen and (max-width:970px){
+		#hd_pop div.hd_pops{left:0 !important; width:50%;}
+		#hd_pop div.hd_pops:nth-child(2n){left:50% !important;}
+		.hd_pops_con{width:100% !important; height:auto !important;}
+		.hd_pops_con img{width:100%;}
+	}
+	@media screen and (max-width:500px){
+		#hd_pop div.hd_pops{ width:96%; top:10px !important; left:2% !important;}
+		#hd_pop div.hd_pops:nth-child(2n){left:2% !important;}
+	}
+</style>
+<!-- 팝업레이어 시작 { -->
+<div id="hd_pop">
+    <h2>팝업레이어 알림</h2>
+
+    </div>
+
+<script>
+   $(function() {
+    $(".hd_pops_reject").click(function() {
+        var id = $(this).attr('class').split(' ');
+        var ck_name = id[1];
+        var exp_time = parseInt(id[2]);
+        $("#"+id[1]).css("display", "none");
+        set_cookie(ck_name, 1, exp_time, "");
+    });
+    $('.hd_pops_close').click(function() {
+		//alert("ddd");
+        var idb = $(this).attr('class').split(' ');
+        $('#'+idb[1]).css('display','none');
+    });
+    $("#hd").css("z-index", 1000);
+});
+    // 쿠키 입력
+// 창열기
+function openWin( winName ) {
+   var blnCookie    = getCookie( winName );
+   var obj = eval( "window." + winName );
+   if( !blnCookie ) {
+       obj.style.display = "block";
+   }
+}
+
+// 창닫기
+function closeWin(winName, expiredays) {
+   setCookie( winName, "done" , expiredays);
+   var obj = eval( "window." + winName );
+   obj.style.display = "none";
+}
+function closeWinAt00(winName, expiredays) {
+   setCookieAt00( winName, "done" , expiredays);
+   var obj = eval( "window." + winName );
+   obj.style.display = "none";
+}
+
+function set_cookie(name, value, expirehours, domain)
+{
+
+    var today = new Date();
+    today.setTime(today.getTime() + (60*60*1000*expirehours));
+    document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + today.toGMTString() + ";";
+    if (domain) {
+        document.cookie += "domain=" + domain + ";";
+    }
+}
+
+// 쿠키 얻음
+function get_cookie(name)
+{
+    var find_sw = false;
+    var start, end;
+    var i = 0;
+
+    for (i=0; i<= document.cookie.length; i++)
+    {
+        start = i;
+        end = start + name.length;
+
+        if(document.cookie.substring(start, end) == name)
+        {
+            find_sw = true
+            break
+        }
+    }
+
+    if (find_sw == true)
+    {
+        start = end + 1;
+        end = document.cookie.indexOf(";", start);
+
+        if(end < start)
+            end = document.cookie.length;
+
+        return unescape(document.cookie.substring(start, end));
+    }
+    return "";
+}
+
+// 쿠키 지움
+function delete_cookie(name)
+{
+    var today = new Date();
+
+    today.setTime(today.getTime() - 1);
+    var value = get_cookie(name);
+    if(value != "")
+        document.cookie = name + "=" + value + "; path=/; expires=" + today.toGMTString();
+}
+
+</script>
+<!-- } 팝업레이어 끝 -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js" 
+integrity="sha512-cdV6j5t5o24hkSciVrb8Ki6FveC2SgwGfLE31+ZQRHAeSRxYhAQskLkq3dLm8ZcWe1N3vBOEYmmbhzf7NTtFFQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="/common/js/main.js"></script>
+
+<!-- 메인 컨텐츠 -->
+
+<div id="main-pg" class="fullpage">
+
+	<!-- 메인비쥬얼 -->
+	<section class="section mvisual msec01">
+        <!-- sec-header -->
+<header class="header">
+    <div class="inner">
+        <a href="/" class="logo"><img src="/images/common/hd-logo.png" alt="MetaPay"></a>
+        
+        <div class="right">
+            <ul class="gnb">
+                                    <li>
+                        <a href="/company/about.php">Company Profile</a>
+                        <div class="depth02">
+                                                                <a href="/company/about.php" >About us</a>
+                                                                <a href="/company/greetings.php" >Greetings</a>
+                                                                <a href="/company/ci.php" >CI</a>
+                                                    </div>
+                    </li>
+                                    <li>
+                        <a href="/business/whitepaper.php">Solution</a>
+                        <div class="depth02">
+                                                                <a href="/business/whitepaper.php" >Solution</a>
+                                                                <a href="/business/partners.php" >Partners</a>
+                                                    </div>
+                    </li>
+                                    <li>
+                        <a href="/bbs/?so_table=press_release">News</a>
+                        <div class="depth02">
+                                                                <a href="/bbs/?so_table=press_release" >Press Release</a>
+                                                                <a href="/bbs/?so_table=notice" >Notice</a>
+                                                                <a href="/bbs/?so_table=videos" >Videos</a>
+                                                    </div>
+                    </li>
+                                    <li>
+                        <a href="/patent/patent.php">Patent</a>
+                        <div class="depth02">
+                                                                <a href="/patent/patent.php" >Patent</a>
+                                                    </div>
+                    </li>
+                                    <li>
+                        <a href="/service/contact.php">Contact us</a>
+                        <div class="depth02">
+                                                                <a href="/service/contact.php" >Contact us</a>
+                                                    </div>
+                    </li>
+                                <!-- <li>
+                    <a href="/company/about.php">Company Profile</a>
+                    <div class="depth02">
+                        <a href="/company/about.php">About us</a>
+                        <a href="/company/greetings.php">Greetings</a>
+                        <a href="/company/ci.php">CI</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="/business/roadmap.php">Business</a>
+                    <div class="depth02">
+                        <a href="/business/roadmap.php">Roadmap</a>
+                        <a href="/business/whitepaper.php">Whitepaper</a>
+                        <a href="/business/partners.php">Partners</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="https://blog.naver.com/thetheia">Community</a>
+                    <div class="depth02">
+                        <a href="https://blog.naver.com/thetheia" target="_blank">Blog</a>
+                        <a href="www.naver.com" target="_blank">Telegram</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="/bbs/?so_table=press_release">News</a>
+                    <div class="depth02">
+                        <a href="/bbs/?so_table=press_release">Press Release</a>
+                        <a href="/bbs/?so_table=notice">Notice</a>
+                        <a href="/news/videos.php">Videos</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="/service/contact.php">Contact us</a>
+                    <div class="depth02">
+                        <a href="/service/contact.php">Contact us</a>
+                    </div>
+                </li> -->
+            </ul>
+              <div class="lang">
+				<p><span class="ic"><img src="/images/common/ico-lang.png" alt="language icon"></span>KOR</p>
+				<div class="lang-btnbox">
+					<a href="/language.php?lang=ko" class="ko-btn">KOR</a>
+					<a href="/language.php?lang=en" class="en-btn">CN</a>
+				</div>
+			</div>
+        </div>
+        <span class="menu-btn">
+            <span class="bar">&nbsp;</span>
+            <span class="bar">&nbsp;</span>
+            <span class="bar">&nbsp;</span>
+        </span>
+    </div>
+
+    <!-- full menu -->
+    <div class="full-menu">
+        <div class="dim-bg">&nbsp;</div>
+        <div class="cont">
+            <div class="mb-lang">
+                <a href="/language.php?lang=ko" class="ko-btn">KOR</a>
+                <a href="/language.php?lang=en" class="en-btn">CN</a>
+            </div> 
+            <div class="cont-in">
+                <div class="menu-box">
+                                    <div class="box">
+                        <strong>Company Profile</strong>
+                                                        <a href="/company/about.php" >About us</a>
+                                                        <a href="/company/greetings.php" >Greetings</a>
+                                                        <a href="/company/ci.php" >CI</a>
+                                            </div>
+                                    <div class="box">
+                        <strong>Solution</strong>
+                                                        <a href="/business/whitepaper.php" >Solution</a>
+                                                        <a href="/business/partners.php" >Partners</a>
+                                            </div>
+                                    <div class="box">
+                        <strong>News</strong>
+                                                        <a href="/bbs/?so_table=press_release" >Press Release</a>
+                                                        <a href="/bbs/?so_table=notice" >Notice</a>
+                                                        <a href="/bbs/?so_table=videos" >Videos</a>
+                                            </div>
+                                    <div class="box">
+                        <strong>Patent</strong>
+                                                        <a href="/patent/patent.php" >Patent</a>
+                                            </div>
+                                    <div class="box">
+                        <strong>Contact us</strong>
+                                                        <a href="/service/contact.php" >Contact us</a>
+                                            </div>
+                                    <!-- <div class="box">
+                        <strong>Company Profile</strong>
+                        <a href="/company/about.php">About us</a>
+                        <a href="/company/greetings.php">Greetings</a>
+                        <a href="/company/ci.php">CI</a>
+                    </div>
+                    <div class="box">
+                        <strong>Business</strong>
+                        <a href="/business/roadmap.php">Roadmap</a>
+                        <a href="/business/whitepaper.php">Whitepaper</a>
+                        <a href="/business/partners.php">Partners</a>
+                    </div>
+                    <div class="box">
+                        <strong>Community</strong>
+                        <a href="https://blog.naver.com/thetheia" target="_blank">Blog</a>
+                        <a href="#" target="_blank">Telegram</a>
+                    </div>
+                    <div class="box">
+                        <strong>News</strong>
+                        <a href="/bbs/?so_table=press_release">Press Release</a>
+                        <a href="/bbs/?so_table=notice">Notice</a>
+                        <a href="/news/videos.php">Videos</a>
+                    </div>
+                    <div class="box">
+                        <strong>Contact us</strong>
+                        <a href="/service/contact.php">Contact us</a>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<!-- sec-header -->		<div class="txtbox inner">
+            <div>
+                <h2>
+                    <!-- <p class="fade-effect"> <strong>대기업 플랫폼 독점 대응</strong></p> 
+                    <p class="fade-effect"><strong>개방형 모빌리티</strong></p>
+                    <p class="fade-effect"><strong>지역 콜택시 배차 중계</strong></p>
+                    
+                </h2>
+                <p class="fade-effect mdesc">
+                AXISMOBILITY는 지역 콜택시 배차 중계 시스템을 개발하여, 
+                금융, 여행, 의료 서비스 등을 통합한 SUPERAPP에 콜택시 호출 기능을 탑재하는 서비스를 제공합니다. 
+                이를 통해 대기업 플랫폼의 독과점에 대응하고, 개방형 모빌리티를 추진함으로써 
+                다양한 산업에서 활용될 수 있는 유연한 콜택시 솔루션을 제시합니다.<br>
+                
+                </p> -->
+            </div>
+            <div class="control">
+                <div class="mv-pagination"></div>                                    
+                <div class="navibox">
+                    <div class="mv-prev navi-btn"><img src="/images/main/mslide-prev-wht.png" alt="prev"></div>
+                    <div class="mv-next navi-btn"><img src="/images/main/mslide-next-wht.png" alt="next"></div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-w">
+            <div class="swiper-container mv-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="bg" id="mv_bg_01" style="background-image:url(/images/main/mv-bg01.png)">&nbsp;</div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="bg" id="mv_bg_02" style="background-image:url(/images/main/mv-bg02.png)">&nbsp;</div>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section msec02">
+		<div class="inner">
+            <div class="img">
+                
+                <span class="bg"><img src="/images/main/msec02-img-bg.png" alt=""></span>
+            </div>
+            <div class="txtbox slide-w">
+                <div class="swiper-container msec02-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <p class="mtit">
+                                <strong>AXISMOBILITY</strong>는 콜택시 기반 모빌리티 서비스를 추구합니다. <br class="pc-br">
+                                <br class="pc-br">
+                               
+                            </p>
+                            <p class="mdesc">
+                            콜택시 산업은 10년 이상 한 지역에 기반을 둔 소규모 사업자로서, 오랜 기간 동안 해당 지역사회에서 활동해 왔습니다.
+                            </p>
+                        </div>
+                        <div class="swiper-slide">
+                            <p class="mtit"><strong>SUPER APP</strong>에 콜택시 호출 콘텐츠를 제공합니다.</p>
+                            <p class="mdesc">
+                            소비자들이 매일 사용하는 SUPER APP을 통해 콜택시 호출 서비스를 이용할 수 있습니다. 
+                            택시는 대중교통 수단 중 소비자들에게 가장 선호되는 선택지입니다.                          
+                            </p>
+                        </div>
+                        <div class="swiper-slide">
+                            <p class="mtit">대기업 플랫폼의 독점에 대응하기 위해 노력합니다.</p>
+                            <p class="mdesc">
+                            독점 시장의 결과로 서비스 비용이 상승할 경우,  <br class="pc-br">
+                            그 부담은 소비자와 기사 모두에게 전가될 수 있습니다.<br class="pc-br">                                
+                            </p>
+                        </div>
+                        <div class="swiper-slide">
+                            <p class="mtit">AXISMOBILITY는 개방형 모빌리티 솔루션을 지향합니다.</p>
+                            <p class="mdesc">
+                            AXISMOBILITY는 SUPER APP과 콜택시의 연계를 통해   <br class="pc-br">
+                            소비자에게 다양한 편의를 제공하려고 합니다.<br class="pc-br">                                
+                            </p>
+                        </div>
+                        <div class="swiper-slide">
+                            <p class="mtit">가장 신속한 택시 배차 서비스를 제공합니다.</p>
+                            <p class="mdesc">
+                            AXISMOBILITY는 전국에 걸쳐 24,000대의 콜택시 사업자들과 연계하여,  <br class="pc-br">
+                            소비자들에게 가장 신속하고 경제적인 배차 서비스를 제공하려고 합니다.<br class="pc-br">
+                                
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="control">
+					<div class="numbox">
+						<span class="swiper-pagination-current">01</span> / <span class="swiper-pagination-total">05</span>
+					</div>
+                    <div class="navibox">
+						<div class="msec02-prev navi-btn"><img src="/images/main/mslide-prev-blk.png" alt="prev"></div>
+						<div class="msec02-next navi-btn"><img src="/images/main/mslide-next-blk.png" alt="next"></div>
+					</div>
+				</div>
+            </div>
+        </div>
+        <span class="bg-circle bg-obj01">&nbsp;</span>
+        <span class="bg-circle bg-obj02">&nbsp;</span>
+        <span class="bg-circle bg-obj03">&nbsp;</span>
+    </section>
+
+    <section class="section msec03">
+        <div class="inner">
+            <div class="txtbox">
+                <p class="fade-effect mtit">
+                    <strong>AXISMOBILITY의 택시 결제 단말기 및 배차 중계 시스템은   <class="pc-br">
+                            24,000대의 콜택시와 호환되어, SUPER APP과 콜택시 산업에  <class="pc-br">
+                            혁신적인 모빌리티 서비스를 제공할 수 있는 기반이 됩니다.  </strong>
+                </p>
+                <p class="fade-effect mdesc">
+                    SUPER APP은 기존 콜택시 인프라를 100% 활용하여 시장에 진입할 수 있으며, <br class="pc-br">
+
+                    대규모의 초기 투자 없이도 콜택시 호출 서비스를   <br class="pc-br">
+                    손쉽게 제공할 수 있도록 지원하는 것을 목표로 합니다.<br class="pc-br">
+                   
+                </p>
+            </div>
+            <div class="img">
+                <span class="img-obj"><img src="/images/main/msec03-img.png" alt=""></span>
+            
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- <section class="section msec04">
+        <div class="inner">
+            <p class="mtit">Press Releases & <strong>Anouncements</strong></p>
+            <div class="flex-box">
+                <div class="left">
+                    <div class="video-w">
+                        <div class="video">
+                                                       
+                        </div>
+                    </div>
+                </div>
+                <ul class="list">
+                                        <li class="fade-effect">
+                        <p class="title">공지사항</p>
+                        <p class="desc">안녕하세요. 엑시스모빌리티입니다.최근 회사에 많은 문의가 접수 되고 있습니다. 이는 현재시점에서 상장 계획이 없음에도 불구하고, 상장이 확정된 것처럼 투자를 권유하는 사례가 발생하고 있기 때문입니다. 특히, “원금을 보장하겠다\"는 투자 권유로 인해 피해자가 발생하고 있습니다.또한, 타지역에서 저희 회사 이름과 같은 법인 이름으로 등록하여 계좌를 만들어 입금을 유도하는 등의 투자 사기도 발생하고 있습니다. 이에 따라 여러분께 주의사항을 안내해 드립니다.주의사항 안내1.	상장 계획 관련: 회사는 현재 상장 계획이 없습니다. 상장과 관련된 어떠한 투자 권유도 사기이므로 절대 응하지 마시기 바랍니다.2.	원금 보장 투자 권유: 회사는 원금을 보장하는 어떠한 투자 상품도 제공하지 않습니다. 원금을 보장하겠다는 투자 권유는 모두 사기이므로 절대 응하지 마시기 바랍니다.3.	계좌 사기: 회사 명의로 만들어진 계좌로 입금을 유도하는 사례가 발생하고 있습니다. 저희 회사는 계좌를 통한 개인 투자를 받지 않습니다.&nbsp;안전한 투자 방법-	공식 홈페이지 확인: 투자를 원하시는 분은 반드시 회사 공식 홈페이지 및 공인된 채널을 통해 정보를 확인해 주시기 바랍니다.-	고객센터 문의: 의심스러운 투자 권유를 받으신 경우, 즉시 회사에 연락 주시기 바랍니다. 전화연결이 안될 경우를 대비해 착신으로 연결해 두었습니다.엑시스모빌리티는 투자자 및 주주님의 소중한 자산을 보호하기 위해 최선을 다하고 있습니다. 안전한 투자 환경을 위해 한번더 주의 부탁드립니다.감사합니다.엑시스모빌리티 드림</p>
+                        <a href="http://soro139.soroweb.co.kr/bbs/?so_table=notice&mode=VIEW&num=22" class="arr"><img src="/images/main/msec04-arr.png" alt="더보기"></a>
+                    </li>
+                                        <li class="fade-effect">
+                        <p class="title">신 주 발 행 공 고</p>
+                        <p class="desc">주식회사 엑시스모빌리티는 상법 제416조에 의거하여 이사회에서 아래와 같이 신주발행을 결의하였으므로, 상법 제418조에 따라 이를 공고 합니다.1. 신주의 종류와 수 : 보통주식 / 40,000주2. 1주의 액면가액 : 500원3. 신주의 발행가액 : 2,500원4. 신주의 인수방법 : 제3자 배정5. 현물출자 관련사항 : 현물출자자(홍성기) 현물의 종류(채권상계)&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;채권상계금액(100,000,000원)6. 무액면주식 발행여부 : 해당사항 없음7. 신주의 주금납입일 : 2024년 5월 20일주식회사 엑시스모빌리티서울특별시 서초구 동광로 99, 4층(방배동, 유니코빌딩)대표이사&nbsp; 박 대 용 (직인생략)</p>
+                        <a href="http://soro139.soroweb.co.kr/bbs/?so_table=notice&mode=VIEW&num=21" class="arr"><img src="/images/main/msec04-arr.png" alt="더보기"></a>
+                    </li>
+                                        <li class="fade-effect">
+                        <p class="title">유상증자 참여 공고</p>
+                        <p class="desc">주주님의 건승과 댁내의 평안을 기원합니다.당사는 이사회의결을 거쳐 2023년 6월 1일 (주)티페이먼트 유상증자에 참여하였음을 공고합니다.-아래-1. 신주의 종류와 수 : 보통주 37,4842. 신주의 발행가격 : 금 10,000원(1주 금액 : 5,000원)3. 신주의 납일기일 : 2023년 6월 5일2022년 6월 28일(주)엑시스모빌리티대표이사 박대용 (직인생략)</p>
+                        <a href="http://soro139.soroweb.co.kr/bbs/?so_table=notice&mode=VIEW&num=19" class="arr"><img src="/images/main/msec04-arr.png" alt="더보기"></a>
+                    </li>
+                                
+                </ul>
+            </div>
+        </div>
+        <span class="bg-circle bg-obj01">&nbsp;</span>
+        <span class="bg-circle bg-obj02">&nbsp;</span>
+    </section> -->
+
+
+    <section class="section msec05">
+        <div class="inner">
+            <p class="fade-effect mtit"><strong>AXISMOBILITY </strong> ESG Platform</p>
+            <div class="fade-effect logobox"><img src="/images/main/msec05-logo.png" alt=""></div>
+            <p class="fade-effect txt">
+            국내 택시 모빌리티 플랫폼 시장은 소수 대기업과 자본이 풍부한 기업들이 경쟁을 지배하며 시장을 독점하는 상황으로 변모하였습니다. <br>
+            이로 인해 전통적인 콜택시 산업은 어려운 경영 환경에 직면해 있으며, 이를 극복할 명확한 대안이 부재한 상태입니다. <br class="pc-br">
+            
+            
+            AXISMOBILITY는 이러한 폐쇄적인 시장 환경에서 다양한 참여자의 중계를 통해  <br class="pc-br">
+            공정한 경쟁을 촉진하고, 콜택시 업계에 혁신적인 서비스를 제공하기 위해 노력하는 것을 주된 목표로 하고 있습니다.
+            </p>
+        </div>
+    </section>
+
+    <section class="section msec06">
+        <div class="inner">
+            <p class="mtit"><strong>Partners</strong></p>            
+        </div>
+        <div class="cont">
+            <ul class="partners-slider">
+                            <li><img src="/upload/partners/img/20250810_115406_721.png" alt="SWING"></li>
+                            <li><img src="/upload/partners/img/20230626_103153_477.png" alt="금융결제원로고"></li>
+                            <li><img src="/upload/partners/img/20231023_113659_864.png" alt="콜게이트"></li>
+                            <!-- <li><img src="/images/main/partner-logo01.png" alt=""></li>
+                <li><img src="/images/main/partner-logo02.png" alt=""></li>
+                <li><img src="/images/main/partner-logo01.png" alt=""></li>
+                <li><img src="/images/main/partner-logo02.png" alt=""></li>
+                <li><img src="/images/main/partner-logo01.png" alt=""></li>
+                <li><img src="/images/main/partner-logo02.png" alt=""></li>
+                <li><img src="/images/main/partner-logo01.png" alt=""></li>
+                <li><img src="/images/main/partner-logo02.png" alt=""></li> -->
+            </ul>
+        </div>
+        <span class="bg-circle bg-obj01">&nbsp;</span>
+        <span class="bg-circle bg-obj02">&nbsp;</span>
+        <span class="bg-circle bg-obj03">&nbsp;</span>
+    </section>
+
+    <section class="section fp-auto-height">
+        <!-- sec-footer -->
+<footer class="footer">
+<div class="inner">
+        <div class="ft-01">
+            <a href="/" class="logo"><img src="/images/common/ft-logo.png" alt="THEIA"></a>
+            <div class="sitemap">
+                                    <dl>
+                        <dt>Company Profile</dt>
+                                                                                <dd><a href="/company/about.php" >About us</a></dd>
+                                                        <dd><a href="/company/greetings.php" >Greetings</a></dd>
+                                                        <dd><a href="/company/ci.php" >CI</a></dd>
+                                                                    </dl>
+                                    <dl>
+                        <dt>Solution</dt>
+                                                                                <dd><a href="/business/whitepaper.php" >Solution</a></dd>
+                                                        <dd><a href="/business/partners.php" >Partners</a></dd>
+                                                                    </dl>
+                                    <dl>
+                        <dt>News</dt>
+                                                                                <dd><a href="/bbs/?so_table=press_release" >Press Release</a></dd>
+                                                        <dd><a href="/bbs/?so_table=notice" >Notice</a></dd>
+                                                        <dd><a href="/bbs/?so_table=videos" >Videos</a></dd>
+                                                                    </dl>
+                                    <dl>
+                        <dt>Patent</dt>
+                                                                                <dd><a href="/patent/patent.php" >Patent</a></dd>
+                                                                    </dl>
+                                    <dl>
+                        <dt>Contact us</dt>
+                                                                                <dd><a href="/service/contact.php" >Contact us</a></dd>
+                                                                    </dl>
+                                <!-- <dl>
+                    <dt>Company Profile</dt>
+                    <dd><a href="/company/about.php">About us</a></dd>
+                    <dd><a href="/company/greetings.php">Greetings</a></dd>
+                    <dd><a href="/company/ci.php">CI</a></dd>
+                </dl>
+                <dl>
+                    <dt>Business</dt>
+                    <dd><a href="/business/roadmap.php">Roadmap</a></dd>
+                    <dd><a href="/business/whitepaper.php">Whitepaper</a></dd>
+                    <dd><a href="/business/footer_icon.php">footer_icon</a></dd>
+                </dl>
+                <dl>
+                    <dt>Community</dt>
+                    <dd><a href="https://blog.naver.com/thetheia" target="_blank">Blog</a></dd>
+                    <dd><a href="www.naver.com" target="_blank">Telegram</a></dd>
+                </dl>
+                <dl>
+                    <dt>News</dt>
+                    <dd><a href="/bbs/?so_table=press_release">Press Release</a></dd>
+                    <dd><a href="/bbs/?so_table=notice">Notice</a></dd>
+                    <dd><a href="/news/videos.php">Videos</a></dd>
+                </dl>
+                <dl>
+                    <dt>Contact us</dt>
+                    <dd><a href="/service/contact.php">Contact us</a></dd>
+                </dl> -->
+            </div>
+        </div>
+        <div class="ft-02">
+            <div class="info">
+                <ul>
+                                            <li><a href="/sub/terms.php">이용약관</a></li>
+                        <li><a href="/sub/privacy.php">개인정보처리방침</a></li>
+                        
+                                    </ul><br>
+
+                <ul>
+                                            <li><a>서울특별시 서초구 동광로 99, 4층(방배동 유니코빌딩)  |    대표전화 +82-2-594-0098   |    팩스 +82-2-594-0081 |   e-mail : service@axismobility.io </a></li>
+                       
+                        
+                                    </ul> <br>
+
+
+                <ul>
+                                            <li><a>Copyright © 2020 The AXIS MOBILITY  All rights reserved.</a></li>
+                       
+                        
+                                    </ul>
+            </div>
+            <div class="sns">
+                                <!--<a href="https://www.linkedin.com/in/daeyong-park-0a224a188" target="_blank"><img src="/images/common/ft-sns-in.png" alt="in"></a>
+                <a href="www.naver.com" target="_blank"><img src="/images/common/ft-sns-telegram.png" alt="telegram"></a> -->
+            </div>
+        </div>
+    </div>
+
+        <a href="javascript:void(0);" class="top-btn main-top-btn">Top</a>
+    </footer>
+<!-- sec-footer -->    </section>
+</div>
+
+<span class="scroll-arr">
+    <span class="txt">Scroll down</span>
+</span>
+
+
+
+
+
+
+
+	</section>
+	<!-- sec-centent -->
+
+    
+</section>
+<!-- sec-wrap -->
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+function set_file_down_count(id){
+	$.ajax({
+		url : "/ajax/ajax.set_file_down_count.php",
+		data : {"id":id},
+		dataType : "json",
+		type : "post",
+		success : function(data){
+			// console.log(data);
+		}
+	});
+}
+</script>

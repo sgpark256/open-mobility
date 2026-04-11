@@ -53,21 +53,47 @@ document.addEventListener('DOMContentLoaded', () => {
   if (heroSlides.length > 0) {
     let current = 0;
     let heroTimer;
+    const len = heroSlides.length;
+    let skipHeroVisualAnim = true;
+
+    const HERO_VISUAL_FX = [
+      'hero-visual--fx-fade',
+      'hero-visual--fx-topright',
+      'hero-visual--fx-from-bottom',
+      'hero-visual--fx-zoomin'
+    ];
+
+    function playHeroVisualMotion() {
+      if (skipHeroVisualAnim) {
+        skipHeroVisualAnim = false;
+        return;
+      }
+      document.querySelectorAll('.hero-slide .hero-slide-visual').forEach((el) => {
+        el.classList.remove('hero-visual--enter', ...HERO_VISUAL_FX);
+      });
+      const vis = heroSlides[current].querySelector('.hero-slide-visual');
+      if (!vis) return;
+      const fx = HERO_VISUAL_FX[current % HERO_VISUAL_FX.length];
+      vis.classList.add(fx);
+      void vis.offsetWidth;
+      vis.classList.add('hero-visual--enter');
+    }
 
     function showSlide(idx) {
       heroSlides.forEach(s => s.classList.remove('active'));
       heroDots.forEach(d => d.classList.remove('active'));
-      current = (idx + heroSlides.length) % heroSlides.length;
+      current = (idx + len) % len;
       heroSlides[current].classList.add('active');
       if (heroDots[current]) heroDots[current].classList.add('active');
       if (heroCounter) {
-        heroCounter.textContent = String(current + 1).padStart(2, '0') + ' / ' + String(heroSlides.length).padStart(2, '0');
+        heroCounter.textContent = String(current + 1).padStart(2, '0') + ' / ' + String(len).padStart(2, '0');
       }
+      playHeroVisualMotion();
     }
 
     function startTimer() {
       clearInterval(heroTimer);
-      heroTimer = setInterval(() => showSlide(current + 1), 5000);
+      heroTimer = setInterval(() => showSlide(current + 1), 13000);
     }
 
     heroDots.forEach((dot, i) => {

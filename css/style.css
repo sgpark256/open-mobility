@@ -14,7 +14,7 @@
   --dark-gray: #333333;
   --text: #444444;
   --border: #e0e0e0;
-  --header-height: 80px;
+  --header-height: 100px;
 }
 
 * {
@@ -32,6 +32,36 @@ body {
   color: var(--text);
   line-height: 1.7;
   overflow-x: hidden;
+}
+
+/* 한글 제목·부제: 어절 단위 줄바꿈, 한 글자만 다음 줄로 넘어가는 현상 완화 */
+h1,
+h2,
+h3,
+.page-banner h1,
+.hero-slide-content h2,
+.feature-heading h2,
+.info-content h2,
+.section-title h2,
+.cycle-section h2,
+.greetings-section .section-title h2 {
+  word-break: keep-all;
+  line-break: strict;
+  overflow-wrap: break-word;
+}
+
+.page-banner p,
+.info-content .lead,
+.greetings-body p {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+/* 조사 등 짧은 덩어리를 한 줄에 묶을 때 (예: ~에게) */
+.keep-line {
+  display: inline-block;
+  white-space: nowrap;
+  max-width: 100%;
 }
 
 a {
@@ -97,7 +127,7 @@ img {
 }
 
 .header-logo img {
-  height: 38px;
+  height: 76px;
 }
 
 .header-logo .logo-link {
@@ -106,9 +136,11 @@ img {
 }
 
 .header-logo .header-logo-img {
-  height: 38px;
+  height: 76px;
   width: auto;
+  max-width: min(360px, 42vw);
   display: block;
+  object-fit: contain;
 }
 
 .header-logo .logo-text {
@@ -546,7 +578,7 @@ img {
   width: 100%;
   height: 100%;
   opacity: 0;
-  transition: opacity 1s ease;
+  transition: opacity 1.85s ease-in-out;
   background-size: cover;
   background-position: center;
 }
@@ -562,15 +594,144 @@ img {
   background: rgba(5,10,30,0.6);
 }
 
-.hero-slide-content {
+/* 좌측 카피 + 우측 브랜드 비주얼 */
+.hero-slide-inner {
   position: absolute;
-  bottom: 18%;
+  z-index: 2;
   left: 50%;
+  bottom: 22%;
   transform: translateX(-50%);
-  width: 90%;
-  max-width: 1200px;
+  width: min(92%, 1200px);
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(200px, 0.78fr);
+  gap: clamp(20px, 3.5vw, 40px);
+  align-items: center;
+}
+
+.hero-slide-content {
+  position: relative;
+  width: 100%;
+  max-width: none;
   z-index: 2;
   color: #fff;
+}
+
+.hero-slide-visual {
+  margin: 0;
+  line-height: 0;
+  justify-self: end;
+  max-width: 100%;
+}
+
+.hero-slide-visual img {
+  width: 100%;
+  max-width: min(420px, 36vw);
+  height: auto;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 16px 40px rgba(0, 0, 0, 0.35));
+  transform-origin: center center;
+}
+
+/* 우측 비주얼: 슬라이드마다 다른 PPT형 모션 — 길고 움직임 큼 (JS가 .hero-visual--fx-* 부여) */
+.hero-slide-visual.hero-visual--fx-fade.hero-visual--enter img {
+  animation: heroFxFade 3.6s cubic-bezier(0.25, 0.46, 0.28, 1) both;
+}
+
+.hero-slide-visual.hero-visual--fx-topright.hero-visual--enter img {
+  animation: heroFxTopRight 4s cubic-bezier(0.2, 0.65, 0.15, 1) both;
+}
+
+.hero-slide-visual.hero-visual--fx-from-bottom.hero-visual--enter img {
+  animation: heroFxFromBottom 3.85s cubic-bezier(0.18, 0.72, 0.22, 1) both;
+}
+
+.hero-slide-visual.hero-visual--fx-zoomin.hero-visual--enter img {
+  animation: heroFxZoomIn 3.75s cubic-bezier(0.22, 1, 0.4, 1) both;
+}
+
+@keyframes heroFxFade {
+  0% {
+    opacity: 0;
+    transform: scale(0.52) translateY(48px);
+  }
+  35% {
+    opacity: 0.45;
+    transform: scale(0.72) translateY(22px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes heroFxTopRight {
+  0% {
+    opacity: 0;
+    transform: translate(160px, -130px) scale(0.58) rotate(12deg);
+  }
+  40% {
+    opacity: 0.92;
+    transform: translate(36px, -28px) scale(0.9) rotate(4deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+}
+
+@keyframes heroFxFromBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(200px) scale(0.62) rotate(-6deg);
+  }
+  45% {
+    opacity: 0.95;
+    transform: translateY(36px) scale(0.88) rotate(-1.5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(0deg);
+  }
+}
+
+@keyframes heroFxZoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.38) translateY(28px);
+  }
+  42% {
+    opacity: 1;
+    transform: scale(1.18) translateY(-6px);
+  }
+  68% {
+    transform: scale(0.94) translateY(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-slide-visual.hero-visual--enter img {
+    animation: none !important;
+  }
+
+  .hero-slide {
+    transition-duration: 0.35s;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .hero-slide-inner {
+    grid-template-columns: minmax(0, 1fr) minmax(160px, 0.62fr);
+    gap: 24px;
+  }
+
+  .hero-slide-visual img {
+    max-width: min(340px, 34vw);
+  }
 }
 
 .hero-slide-content .slide-label {
@@ -1175,6 +1336,11 @@ img {
   display: block;
 }
 
+.team-info {
+  flex: 1;
+  min-width: 0;
+}
+
 .team-info h3 {
   font-size: 18px;
   font-weight: 700;
@@ -1192,7 +1358,20 @@ img {
 .team-info .career {
   font-size: 13px;
   color: var(--gray);
-  line-height: 1.8;
+  line-height: 1.25;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* 이력 한 줄씩: 항목마다 한 화면 줄(줄바꿈 없음), 넘치면 .career 가로 스크롤 */
+.team-info .career .career-line {
+  display: block;
+  width: max-content;
+  max-width: none;
+  white-space: nowrap;
+  margin: 0;
+  padding: 0;
+  line-height: 1.25;
 }
 
 /* =============================================
@@ -1816,7 +1995,13 @@ img {
 
 @media (max-width: 768px) {
   :root {
-    --header-height: 65px;
+    --header-height: 80px;
+  }
+
+  .header-logo img,
+  .header-logo .header-logo-img {
+    height: 56px;
+    max-width: min(280px, calc(100vw - 120px));
   }
 
   .header-inner {
@@ -1831,9 +2016,31 @@ img {
     display: flex;
   }
 
-  .hero-slide-content {
-    bottom: 20%;
+  .hero-slide-inner {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    bottom: 24%;
     width: 88%;
+    gap: 20px;
+  }
+
+  .hero-slide-content {
+    text-align: center;
+  }
+
+  .hero-slide-content p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-slide-visual {
+    order: -1;
+    justify-self: center;
+  }
+
+  .hero-slide-visual img {
+    max-width: min(260px, 72vw);
   }
 
   .info-grid,
