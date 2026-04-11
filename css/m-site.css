@@ -238,7 +238,7 @@ body.page-m-site {
   margin-top: 20px;
 }
 
-.m-cycle-wrap .cycle-card[style*='grid-column'] {
+.m-cycle-wrap .cycle-card--full {
   grid-column: 1 / -1;
 }
 
