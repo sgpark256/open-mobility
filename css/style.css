@@ -2199,6 +2199,67 @@ img {
   .solution-feature-grid {
     grid-template-columns: 1fr;
   }
+
+  /* ----- 모바일: 메인 히어로·블록 잘림 방지 ----- */
+  .home-top-block {
+    display: block;
+    min-height: 0;
+  }
+
+  .home-top-block .hero-slider {
+    overflow: visible;
+    /* 헤더+배너 제외 후에도 카피·이미지·컨트롤이 들어갈 만큼 세로 확보 */
+    min-height: min(920px, calc(100svh - var(--site-header-offset, 180px) + 42vh));
+    height: auto;
+  }
+
+  .hero-slider {
+    overflow-x: hidden;
+    overflow-y: visible;
+  }
+
+  .hero-slide-inner {
+    bottom: 14%;
+    width: min(100%, calc(100vw - 20px));
+    padding-left: 10px;
+    padding-right: 10px;
+    box-sizing: border-box;
+  }
+
+  .hero-slide-content h2 {
+    font-size: clamp(20px, 6.2vw, 34px);
+    line-height: 1.18;
+  }
+
+  .hero-controls {
+    bottom: 5%;
+    width: min(96%, calc(100vw - 16px));
+  }
+
+  .scroll-indicator {
+    bottom: 2%;
+  }
+
+  /* 서브페이지 상단 배너: 노치·좁은 화면 */
+  .page-banner {
+    padding-left: max(20px, env(safe-area-inset-left, 0px));
+    padding-right: max(20px, env(safe-area-inset-right, 0px));
+    padding-top: max(96px, calc(env(safe-area-inset-top, 0px) + 80px));
+  }
+
+  /* 피처 카드 가로 스크롤 영역이 잘리지 않도록 */
+  .feature-slides {
+    overflow-x: auto;
+    overflow-y: visible;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 6px;
+  }
+
+  .container,
+  .container-wide {
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
 }
 
 @media (max-width: 480px) {
