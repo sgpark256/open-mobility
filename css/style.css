@@ -2795,18 +2795,23 @@ img {
   }
 }
 
+/* 대구 POC: 세로(모바일 촬영) 영상 — 넓은 화면에서는 폭을 제한해 ‘폰 화면’ 비율로 표시 */
 .poc-video-block {
   margin-top: 56px;
   padding-top: 40px;
   border-top: 1px solid rgba(0, 0, 0, 0.06);
-  max-width: 960px;
   margin-left: auto;
   margin-right: auto;
+  max-width: 100%;
 }
 
 .poc-video-frame {
   position: relative;
   width: 100%;
+  /* 세로 영상: 데스크톱·태블릿 가로에서는 핸드폰 폭에 가깝게 */
+  max-width: min(390px, 100%);
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 12px;
   overflow: hidden;
   background: #0a0a18;
@@ -2818,6 +2823,13 @@ img {
   width: 100%;
   height: auto;
   vertical-align: middle;
+  object-fit: contain;
+}
+
+@media (max-width: 480px) {
+  .poc-video-frame {
+    max-width: 100%;
+  }
 }
 
 /* 모바일: 본문 아래쪽에 정의된 .cycle-section 패딩(90px) 덮어쓰기 */
