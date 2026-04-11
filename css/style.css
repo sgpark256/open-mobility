@@ -560,6 +560,58 @@ img {
 }
 
 /* =============================================
+   TOP ANNOUNCEMENT BAR (사명 변경 등 주요 안내)
+   ============================================= */
+
+.announcement-bar {
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  right: 0;
+  z-index: 998;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #003d82 0%, #0066cc 45%, #0055aa 100%);
+  border-bottom: 2px solid rgba(102, 170, 255, 0.85);
+  box-shadow: 0 6px 24px rgba(0, 30, 80, 0.45);
+}
+
+.announcement-bar-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px 16px;
+}
+
+.announcement-bar-badge {
+  flex-shrink: 0;
+  display: inline-block;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #0a1a3e;
+  background: linear-gradient(180deg, #ffe566 0%, #ffc93c 100%);
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.announcement-bar-title {
+  flex: 1 1 280px;
+  min-width: 0;
+  margin: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: clamp(16px, 2.4vw, 22px);
+  font-weight: 800;
+  line-height: 1.45;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+/* =============================================
    HERO SLIDER (메인)
    ============================================= */
 
@@ -732,17 +784,6 @@ img {
   .hero-slide-visual img {
     max-width: min(340px, 34vw);
   }
-}
-
-.hero-slide-content .hero-announcement-title {
-  font-family: 'Noto Sans KR', sans-serif;
-  font-size: clamp(22px, 3.6vw, 38px);
-  font-weight: 800;
-  line-height: 1.35;
-  margin: 0 0 20px 0;
-  color: #fff;
-  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45);
-  max-width: 34em;
 }
 
 .hero-slide-content .slide-label {
@@ -2040,10 +2081,17 @@ img {
     text-align: center;
   }
 
-  .hero-slide-content .hero-announcement-title {
-    max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
+  .announcement-bar {
+    padding: 10px 16px;
+  }
+
+  .announcement-bar-inner {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .announcement-bar-title {
+    font-size: clamp(15px, 3.8vw, 18px);
   }
 
   .hero-slide-content p {
