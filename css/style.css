@@ -253,11 +253,6 @@ img {
   color: var(--primary);
 }
 
-/* 메인: 상단 내비 글자 크기(기본 14px 대비 약 20% 축소) */
-.page-home .header-nav .nav-item > a {
-  font-size: calc(14px * 0.8);
-}
-
 .page-home .header-nav .nav-item > a:hover,
 #header.page-header .header-nav .nav-item > a:hover {
   color: var(--accent);
