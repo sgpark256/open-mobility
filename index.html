@@ -8,7 +8,7 @@
   <script src="js/force-https.js"></script>
   <title>Open Mobility — 지역 콜센터의 다음 성장 경로, 외부 고객 생태계와 연결하는 모빌리티 구조</title>
   <meta name="description" content="Open Mobility는 지역 콜센터의 운영을 중심에 두고 외부 고객 생태계와 신규 수요를 연결하며, 통합 콜센터 등으로 운영 효율까지 함께 높이는 연결 플랫폼입니다.">
-  <link rel="stylesheet" href="css/style.css?v=20260419rename1">
+  <link rel="stylesheet" href="css/style.css?v=20260120rebrand1">
 </head>
 <body class="page-home">
   <!-- 한글 단일 사이트: KOR/CN 언어 전환 UI 없음 (캐시된 구버전 보이면 강력 새로고침) -->
@@ -66,10 +66,10 @@
       </div>
     </div>
 
-    <!-- 메인: 핵심 메시지(사업계획 초안 표지·부제와 정렬) -->
-    <div class="announcement-bar" role="region" aria-label="사명 변경 안내">
+    <!-- 메인: 핵심 메시지 — 필요 시 배너 문구만 교체 -->
+    <div class="announcement-bar" role="region" aria-label="핵심 메시지">
       <div class="announcement-bar-inner">
-        <h1 class="announcement-bar-title announcement-bar-title--notice">엑시스모빌리티가 오픈모빌리티로 사명이 변경되었습니다.</h1>
+        <h1 class="announcement-bar-title">지역 콜센터의 다음 성장 경로 — 외부 고객 생태계와 연결되는 새로운 모빌리티 구조</h1>
       </div>
     </div>
   </header>
@@ -428,7 +428,29 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=20260412biz1"></script>
+  <!-- 사명 변경 안내 (세션당 1회) -->
+  <div id="rebrandModal" class="rebrand-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="rebrandModalTitle">
+    <div class="rebrand-modal__backdrop" tabindex="-1"></div>
+    <div class="rebrand-modal__dialog">
+      <button type="button" class="rebrand-modal__close" aria-label="닫기">&times;</button>
+      <h2 id="rebrandModalTitle" class="rebrand-modal__title">사명 변경 안내</h2>
+      <div class="rebrand-modal__logos">
+        <div class="rebrand-modal__logo-cell">
+          <img src="images/logos/axis_logo_black.png" alt="Axis Mobility (이전 사명)" width="200" height="80" loading="eager" decoding="async">
+          <span class="rebrand-modal__logo-caption">이전</span>
+        </div>
+        <span class="rebrand-modal__arrow" aria-hidden="true">→</span>
+        <div class="rebrand-modal__logo-cell">
+          <img src="images/logos/open-mobility_logo1.png" alt="Open Mobility" width="200" height="80" loading="eager" decoding="async">
+          <span class="rebrand-modal__logo-caption">현재</span>
+        </div>
+      </div>
+      <p class="rebrand-modal__text">엑시스모빌리티 사명이 오픈모빌리티로 변경되었습니다.</p>
+      <button type="button" class="rebrand-modal__confirm">확인</button>
+    </div>
+  </div>
+
+  <script src="js/main.js?v=20260120rebrand1"></script>
 </body>
 </html>
 

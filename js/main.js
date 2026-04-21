@@ -229,6 +229,45 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* -------------------------------------------
+     MAIN: 사명 변경 모달 (세션당 1회)
+  ------------------------------------------- */
+  const rebrandModal = document.getElementById('rebrandModal');
+  if (rebrandModal && document.body.classList.contains('page-home')) {
+    const SESSION_KEY = 'om-rebrand-modal-dismissed';
+    const openModal = () => {
+      rebrandModal.classList.add('rebrand-modal--open');
+      rebrandModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    };
+    const closeModal = () => {
+      rebrandModal.classList.remove('rebrand-modal--open');
+      rebrandModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      try {
+        sessionStorage.setItem(SESSION_KEY, '1');
+      } catch (e) {}
+    };
+
+    let dismissed = false;
+    try {
+      dismissed = sessionStorage.getItem(SESSION_KEY) === '1';
+    } catch (e) {}
+
+    if (!dismissed) {
+      requestAnimationFrame(() => openModal());
+    }
+
+    rebrandModal.querySelector('.rebrand-modal__backdrop')?.addEventListener('click', closeModal);
+    rebrandModal.querySelector('.rebrand-modal__close')?.addEventListener('click', closeModal);
+    rebrandModal.querySelector('.rebrand-modal__confirm')?.addEventListener('click', closeModal);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && rebrandModal.classList.contains('rebrand-modal--open')) {
+        closeModal();
+      }
+    });
+  }
+
+  /* -------------------------------------------
      CONTACT FORM
   ------------------------------------------- */
   const contactForm = document.getElementById('contactForm');

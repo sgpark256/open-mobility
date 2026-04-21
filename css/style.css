@@ -620,6 +620,162 @@ img {
 }
 
 /* =============================================
+   REBRAND MODAL (메인 전용 · 사명 변경 안내)
+   ============================================= */
+
+.rebrand-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10050;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.rebrand-modal.rebrand-modal--open {
+  pointer-events: auto;
+  visibility: visible;
+  opacity: 1;
+}
+
+.rebrand-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 10, 30, 0.72);
+  backdrop-filter: blur(4px);
+}
+
+.rebrand-modal__dialog {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 520px;
+  max-height: min(92vh, 640px);
+  overflow: auto;
+  padding: 28px 24px 24px;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.28);
+  text-align: center;
+}
+
+.rebrand-modal__close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  font-size: 28px;
+  line-height: 1;
+  color: #666;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.rebrand-modal__close:hover {
+  background: rgba(0, 0, 0, 0.06);
+  color: #111;
+}
+
+.rebrand-modal__title {
+  margin: 0 0 20px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0e1226;
+  letter-spacing: -0.03em;
+}
+
+.rebrand-modal__logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.rebrand-modal__logo-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  min-width: 140px;
+}
+
+.rebrand-modal__logo-cell img {
+  max-width: min(200px, 42vw);
+  height: auto;
+  max-height: 72px;
+  object-fit: contain;
+}
+
+.rebrand-modal__logo-caption {
+  font-size: 12px;
+  font-weight: 600;
+  color: #6b7280;
+  letter-spacing: 0.02em;
+}
+
+.rebrand-modal__arrow {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #3b82f6;
+  line-height: 1;
+  padding: 0 4px;
+}
+
+.rebrand-modal__text {
+  margin: 0 0 22px;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #1f2937;
+  font-weight: 600;
+}
+
+.rebrand-modal__confirm {
+  display: inline-block;
+  min-width: 160px;
+  padding: 12px 28px;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: 'Noto Sans KR', sans-serif;
+  color: #fff;
+  background: linear-gradient(135deg, #1e3a6e 0%, #0d1b3e 100%);
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(13, 27, 62, 0.35);
+}
+
+.rebrand-modal__confirm:hover {
+  filter: brightness(1.06);
+}
+
+@media (max-width: 480px) {
+  .rebrand-modal__dialog {
+    padding: 24px 18px 20px;
+  }
+
+  .rebrand-modal__logos {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .rebrand-modal__arrow {
+    transform: rotate(90deg);
+  }
+}
+
+/* =============================================
    HERO SLIDER (메인)
    ============================================= */
 
