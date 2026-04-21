@@ -19,6 +19,8 @@
   --title-strip-bg: linear-gradient(180deg, #e9f0f8 0%, #dde6f2 100%);
   --title-strip-edge: rgba(26, 42, 74, 0.1);
   --title-strip-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55), 0 1px 0 rgba(0, 51, 102, 0.06);
+  /* 상단 영문 내비: 메인·서브 동일 (기본 14px 대비 ×1.344) */
+  --header-nav-link-size: calc(14px * 1.4 * 1.2 * 0.8);
 }
 
 /* 메인 전용: 화이트 헤더에서 통계·라벨 대비 (숫자는 진한 레드) */
@@ -258,12 +260,6 @@ img {
   color: var(--accent);
 }
 
-/* PC 상단 영문 내비(메인·서브 공통) — 기준 14px × 1.344 */
-.page-home .header-nav .nav-item > a,
-#header.page-header .header-nav .nav-item > a {
-  font-size: calc(14px * 1.4 * 1.2 * 0.8);
-}
-
 .page-home .hamburger span,
 #header.page-header .hamburger span {
   background: var(--primary);
@@ -295,6 +291,11 @@ img {
 
 .nav-item > a:hover {
   color: #66aaff;
+}
+
+/* id="header" 인 모든 페이지: 상단 내비 글자 = 메인과 동일 (.nav-item > a 14px 보다 뒤·구체성 높음) */
+#header .header-nav .nav-item > a {
+  font-size: var(--header-nav-link-size);
 }
 
 .nav-item:hover .dropdown {
