@@ -46,11 +46,11 @@ body.page-m-site {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 6px 10px;
-  padding: 8px max(12px, env(safe-area-inset-left)) 10px max(12px, env(safe-area-inset-right));
-  font-size: 12px;
+  gap: 12px 20px;
+  padding: 14px max(12px, env(safe-area-inset-left)) 16px max(12px, env(safe-area-inset-right));
+  font-size: 24px;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--header-stats-label, #c2dfff);
   letter-spacing: -0.02em;
   line-height: 1.4;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
@@ -58,12 +58,12 @@ body.page-m-site {
 }
 
 .header-stats--m .header-stats__sep {
-  color: rgba(255, 255, 255, 0.35);
+  color: var(--header-stats-sep, rgba(130, 188, 255, 0.42));
 }
 
 .header-stats--m .header-stats__num {
   font-weight: 800;
-  color: #fff;
+  color: var(--header-stats-num, #6ec8ff);
   font-variant-numeric: tabular-nums;
 }
 
