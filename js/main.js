@@ -20,6 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       syncSiteHeaderOffset();
       window.addEventListener('resize', syncSiteHeaderOffset);
+      window.addEventListener('load', syncSiteHeaderOffset);
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(() => syncSiteHeaderOffset());
+      }
       if (typeof ResizeObserver !== 'undefined') {
         const ro = new ResizeObserver(syncSiteHeaderOffset);
         ro.observe(header);
