@@ -28,6 +28,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const ro = new ResizeObserver(syncSiteHeaderOffset);
         ro.observe(header);
       }
+      /* Windows 125% 배율·창 크기 변경 시 layout 뷰포트가 달라짐 */
+      if (window.visualViewport) {
+        window.visualViewport.addEventListener('resize', syncSiteHeaderOffset);
+        window.visualViewport.addEventListener('scroll', syncSiteHeaderOffset);
+      }
+      requestAnimationFrame(() => {
+        requestAnimationFrame(syncSiteHeaderOffset);
+      });
     }
 
     window.addEventListener('scroll', () => {

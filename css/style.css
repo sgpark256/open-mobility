@@ -25,6 +25,9 @@
 
 html {
   scroll-behavior: smooth;
+  /* Windows 125% 등 배율에서 뷰포트·폰트 보정 */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -121,6 +124,9 @@ img {
   min-height: var(--header-height);
   background: rgba(10, 10, 30, 0.98);
   box-shadow: 0 2px 16px rgba(0, 0, 0, 0.28);
+  /* 고배율(125% 등)·노치: 상단이 뷰포트에 딱 붙어 잘리는 현상 완화 */
+  padding-top: max(10px, env(safe-area-inset-top, 0px));
+  box-sizing: border-box;
 }
 
 .page-home #header .header-inner {
@@ -562,9 +568,9 @@ img {
 
 .home-top-block {
   /* 헤더(메뉴+배너) 실제 높이 — main.js 가 --site-header-offset 설정 */
-  padding-top: var(--site-header-offset, 200px);
+  padding-top: var(--site-header-offset, 220px);
   box-sizing: border-box;
-  /* 노트북·주소창 높이 변화: svh/dvh로 뷰포트 맞춤 */
+  /* 노트북·고배율·주소창: svh/dvh 우선 (100vh 단독은 배율에 따라 잘림 유발) */
   min-height: 100vh;
   min-height: 100svh;
   min-height: 100dvh;
@@ -811,6 +817,9 @@ img {
   transition: opacity 1.85s ease-in-out;
   background-size: cover;
   background-position: center;
+  box-sizing: border-box;
+  /* 우측 비주얼 회전·애니메이션 시 상단이 잘리지 않도록 미세 여유 */
+  padding-top: clamp(0px, 1.2vmin, 18px);
 }
 
 .hero-slide.active {
@@ -1001,6 +1010,17 @@ img {
 
   .page-home .scroll-indicator {
     bottom: 6%;
+  }
+}
+
+/* Windows 125% 등으로 논리적 높이가 작아질 때 — 너비 제한 없이 히어로 여유 */
+@media (min-width: 769px) and (max-height: 960px) {
+  .page-home .hero-slide-inner {
+    bottom: 12%;
+  }
+
+  .page-home .hero-controls {
+    bottom: 5%;
   }
 }
 
