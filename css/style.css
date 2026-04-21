@@ -258,8 +258,9 @@ img {
   color: var(--accent);
 }
 
-/* 메인 PC: 상단 영문 내비 — ×1.68에서 −20% = 기준 14px × 1.344 */
-.page-home .header-nav .nav-item > a {
+/* PC 상단 영문 내비(메인·서브 공통) — 기준 14px × 1.344 */
+.page-home .header-nav .nav-item > a,
+#header.page-header .header-nav .nav-item > a {
   font-size: calc(14px * 1.4 * 1.2 * 0.8);
 }
 
