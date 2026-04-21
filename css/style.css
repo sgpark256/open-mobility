@@ -219,7 +219,7 @@ img {
   justify-content: center;
   gap: 0.7rem 1.5rem;
   min-width: 0;
-  font-size: clamp(22px, 2.2vw, 30px);
+  font-size: clamp(18px, 1.76vw, 24px);
   font-weight: 600;
   color: var(--header-stats-label);
   letter-spacing: -0.02em;
@@ -251,6 +251,11 @@ img {
 .page-home .header-nav .nav-item > a,
 #header.page-header .header-nav .nav-item > a {
   color: var(--primary);
+}
+
+/* 메인: 상단 내비 글자 크기(기본 14px 대비 약 20% 축소) */
+.page-home .header-nav .nav-item > a {
+  font-size: calc(14px * 0.8);
 }
 
 .page-home .header-nav .nav-item > a:hover,
@@ -727,6 +732,7 @@ img {
 .page-home .announcement-bar-title {
   color: #1e2a42;
   text-shadow: none;
+  font-size: clamp(12px, 1.76vw, 16px);
 }
 
 .page-home .announcement-bar-title--notice {
@@ -1097,7 +1103,7 @@ img {
   }
 
   .page-home .announcement-bar-title {
-    font-size: clamp(13px, 1.5vw, 17px);
+    font-size: clamp(10.5px, 1.2vw, 14px);
     line-height: 1.35;
   }
 

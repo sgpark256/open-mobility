@@ -62,7 +62,7 @@ body.page-m-site {
   justify-content: center;
   gap: 12px 20px;
   padding: 14px max(12px, env(safe-area-inset-left)) 16px max(12px, env(safe-area-inset-right));
-  font-size: 24px;
+  font-size: calc(24px * 0.8);
   font-weight: 600;
   color: var(--header-stats-label, #2d343c);
   letter-spacing: -0.02em;
