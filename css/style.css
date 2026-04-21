@@ -674,6 +674,23 @@ img {
   text-shadow: 0 0 1px rgba(0, 0, 0, 0.35);
 }
 
+/* 메인(index/m): 타이틀 바 — 화이트 톤 · 본문은 사이트 프라이머리에 맞춘 짙은 톤 */
+.page-home .announcement-bar {
+  background: linear-gradient(180deg, #fbfcff 0%, #f4f6fa 100%);
+  border-top: 1px solid rgba(26, 26, 46, 0.08);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 1px 0 rgba(0, 0, 0, 0.04);
+}
+
+.page-home .announcement-bar-title {
+  color: #1e2a42;
+  text-shadow: none;
+}
+
+.page-home .announcement-bar-title--notice {
+  color: #b83232;
+  text-shadow: none;
+}
+
 /* =============================================
    REBRAND MODAL (메인 전용 · 사명 변경 안내)
    ============================================= */
