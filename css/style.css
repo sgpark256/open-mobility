@@ -258,9 +258,9 @@ img {
   color: var(--accent);
 }
 
-/* 메인 PC: 상단 영문 내비(Company Profile ~ Contact us) — 기본 14px 대비 +40% */
+/* 메인 PC: 상단 영문 내비 — 이전(14px×1.4) 대비 +20% = 기준 14px × 1.68 */
 .page-home .header-nav .nav-item > a {
-  font-size: calc(14px * 1.4);
+  font-size: calc(14px * 1.4 * 1.2);
 }
 
 .page-home .hamburger span,
