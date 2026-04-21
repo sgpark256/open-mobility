@@ -131,6 +131,13 @@ img {
 
 .page-home #header .header-inner {
   flex: 0 0 auto;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 10px 16px;
+  height: auto;
+  min-height: var(--header-height);
+  padding: 0 clamp(16px, 3vw, 40px);
 }
 
 .page-home #header .announcement-bar {
@@ -174,6 +181,42 @@ img {
   font-weight: 800;
   color: #fff;
   letter-spacing: 1px;
+}
+
+/* 메인 헤더: 콜센터·30일·24시간 통계 (숫자만 API로 갱신) */
+.header-stats {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem 0.75rem;
+  min-width: 0;
+  font-size: clamp(11px, 1.1vw, 15px);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: -0.02em;
+  line-height: 1.35;
+}
+
+.header-stats__sep {
+  color: rgba(255, 255, 255, 0.35);
+  user-select: none;
+}
+
+.header-stats__line {
+  white-space: nowrap;
+}
+
+.header-stats__num {
+  font-variant-numeric: tabular-nums;
+  font-weight: 800;
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .page-home .header-inner .header-stats {
+    display: none;
+  }
 }
 
 /* Navigation */
