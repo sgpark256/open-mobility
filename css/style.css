@@ -15,10 +15,13 @@
   --text: #444444;
   --border: #e0e0e0;
   --header-height: 100px;
-  /* 헤더 통계: 다크 배경용 레드·코랄 강조 */
-  --header-stats-label: #f5c4bf;
-  --header-stats-num: #ff7a6e;
-  --header-stats-sep: rgba(255, 150, 140, 0.45);
+}
+
+/* 메인 전용: 화이트 헤더에서 통계·라벨 대비 (숫자는 진한 레드) */
+.page-home {
+  --header-stats-label: #2d343c;
+  --header-stats-num: #ad1414;
+  --header-stats-sep: rgba(110, 48, 44, 0.45);
 }
 
 * {
@@ -126,11 +129,16 @@ img {
   align-items: stretch;
   height: auto;
   min-height: var(--header-height);
-  background: rgba(10, 10, 30, 0.98);
-  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.28);
+  background: #fff;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06), 0 4px 14px rgba(0, 0, 0, 0.06);
   /* 고배율(125% 등)·노치: 상단이 뷰포트에 딱 붙어 잘리는 현상 완화 */
   padding-top: max(10px, env(safe-area-inset-top, 0px));
   box-sizing: border-box;
+}
+
+.page-home #header.scrolled {
+  background: rgba(255, 255, 255, 0.97);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08), 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
 .page-home #header .header-inner {
@@ -142,6 +150,7 @@ img {
   height: auto;
   min-height: var(--header-height);
   padding: 0 clamp(16px, 3vw, 40px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
 }
 
 .page-home #header .announcement-bar {
@@ -221,6 +230,19 @@ img {
   .page-home .header-inner .header-stats {
     display: none;
   }
+}
+
+/* 메인: 화이트 헤더 — 내비·햄버거는 짙은 톤 */
+.page-home .header-nav .nav-item > a {
+  color: var(--primary);
+}
+
+.page-home .header-nav .nav-item > a:hover {
+  color: var(--accent);
+}
+
+.page-home .hamburger span {
+  background: var(--primary);
 }
 
 /* Navigation */
