@@ -15,10 +15,10 @@
   --text: #444444;
   --border: #e0e0e0;
   --header-height: 100px;
-  /* 헤더 통계: 다크 배경용 블루·시안 강조 (레드 미사용) */
-  --header-stats-label: #c2dfff;
-  --header-stats-num: #6ec8ff;
-  --header-stats-sep: rgba(130, 188, 255, 0.42);
+  /* 헤더 통계: 다크 배경용 레드·코랄 강조 */
+  --header-stats-label: #f5c4bf;
+  --header-stats-num: #ff7a6e;
+  --header-stats-sep: rgba(255, 150, 140, 0.45);
 }
 
 * {

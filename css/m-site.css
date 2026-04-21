@@ -50,7 +50,7 @@ body.page-m-site {
   padding: 14px max(12px, env(safe-area-inset-left)) 16px max(12px, env(safe-area-inset-right));
   font-size: 24px;
   font-weight: 600;
-  color: var(--header-stats-label, #c2dfff);
+  color: var(--header-stats-label, #f5c4bf);
   letter-spacing: -0.02em;
   line-height: 1.4;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
@@ -58,12 +58,12 @@ body.page-m-site {
 }
 
 .header-stats--m .header-stats__sep {
-  color: var(--header-stats-sep, rgba(130, 188, 255, 0.42));
+  color: var(--header-stats-sep, rgba(255, 150, 140, 0.45));
 }
 
 .header-stats--m .header-stats__num {
   font-weight: 800;
-  color: var(--header-stats-num, #6ec8ff);
+  color: var(--header-stats-num, #ff7a6e);
   font-variant-numeric: tabular-nums;
 }
 
